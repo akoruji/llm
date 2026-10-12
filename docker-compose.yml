@@ -7,6 +7,10 @@ services:
     volumes:
       - ollama_data:/root/.ollama
     restart: unless-stopped
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
+      - 8.8.4.4
 
   open-webui:
     image: ghcr.io/open-webui/open-webui:main
@@ -20,6 +24,9 @@ services:
     depends_on:
       - ollama
     restart: unless-stopped
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
 
 volumes:
   ollama_data:
